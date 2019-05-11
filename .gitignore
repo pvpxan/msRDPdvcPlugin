@@ -1,0 +1,8 @@
+.vs
+Debug
+Release
+x64
+msRDPdvcPlugin/Debug
+msRDPdvcPlugin/Release
+msRDPdvcPlugin/x64
+msRDPdvcPluginPS/ReleasePS

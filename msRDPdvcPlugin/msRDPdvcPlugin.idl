@@ -1,0 +1,42 @@
+// msRDPdvcPlugin.idl : IDL source for msRDPdvcPlugin
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (msRDPdvcPlugin.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	uuid(1e300d6b-9787-4bf6-a5eb-57c443a5bf8c),
+	version(1.0),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{7e6e7425-ac71-4e62-9752-8235a3ef2ae9}")
+]
+library msRDPdvcPluginLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7e6e7425-ac71-4e62-9752-8235a3ef2ae9)
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+};
+
