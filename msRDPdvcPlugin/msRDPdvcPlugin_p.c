@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Sat May 11 14:29:25 2019
+/* at Tue Jun 04 21:23:53 2019
  */
 /* Compiler settings for msRDPdvcPlugin.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.00.0603 
@@ -1071,7 +1071,7 @@ static const unsigned short IComponentRegistrar_FormatStringOffsetTable[] =
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Sat May 11 14:29:25 2019
+/* at Tue Jun 04 21:23:53 2019
  */
 /* Compiler settings for msRDPdvcPlugin.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.00.0603 

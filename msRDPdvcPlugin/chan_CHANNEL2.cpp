@@ -32,30 +32,20 @@ HRESULT ListenerCallback_CHANNEL2::OnNewChannelConnection(__in IWTSVirtualChanne
 
 HRESULT STDMETHODCALLTYPE ChannelCallback_CHANNEL2::OnDataReceived(ULONG cbSize, __in_bcount(cbSize) BYTE *pBuffer)
 {
-	HRESULT hr;
-	hr = S_OK; // This needs to be changed at some point.
-
-	// Send a response back to server with the size of the payload received.
-	try
-	{
-		BYTE* rBuffer = NULL;
-		ConvertULONGtoBYTEbuffer(&rBuffer, cbSize);
-
-		if (rBuffer != NULL)
-		{
-			ULONG rSize = BYTElen(rBuffer);
-
-			hr = m_ptrChannel->Write(rSize, rBuffer, NULL); // The rBuffer should only ever be 4 bytes.
-		}
-	}
-	catch (...)
-	{
-		MessageBox(NULL, TEXT("An error occured while attempting to send a data received response back to server."), TEXT("Error..."), MB_OK | MB_ICONERROR);
-	}
-
-	//MessageBoxA(NULL, "Data received on channel 2.", "DVC Channel Message...", MB_OK);
+	//MessageBoxA(NULL, "Data received on channel 2.", "DVC Channel Message...", MB_OK); //debug
+	
+	ReadDataStream(cbSize, pBuffer, "C:\\TEMP\\");
 
 	// Do work with data here.
 
-	return hr;
+	// Send a response back to server with the size of the payload received.
+	BYTE* rBuffer = NULL;
+	ConvertULONGtoBYTEbuffer(&rBuffer, cbSize);
+	if (rBuffer != NULL)
+	{
+		ULONG rSize = BYTElen(rBuffer);
+		m_ptrChannel->Write(rSize, rBuffer, NULL); // The rBuffer should only ever be 4 bytes.
+	}
+
+	return S_OK;
 }
