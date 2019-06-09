@@ -89,7 +89,7 @@ extern void ReadDataStream(ULONG cbSize, __in_bcount(cbSize) BYTE *pBuffer, cons
 	}
 
 	int total_length;
-	total_length = (int)cbSize; // Defines the size used for the file buffer.
+	file_length = (int)cbSize - HEADER_LENGTH; // Defines the size used for the file buffer.
 
 	// Define the file buffer.
 	char* file_buffer;
